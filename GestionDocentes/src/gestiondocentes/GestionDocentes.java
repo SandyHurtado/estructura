@@ -5,13 +5,15 @@
  */
 package gestiondocentes;
 
+import procesos.MenuPrincipal;
+
 /**
  *
  * @author FERNANDO
  */
 public class GestionDocentes {
     public static void main(String[] args) {
-           
+           new MenuPrincipal();
     }
     
 }

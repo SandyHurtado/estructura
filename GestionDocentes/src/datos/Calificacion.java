@@ -11,7 +11,7 @@ package datos;
  */
 public class Calificacion {
     private Docente docente;
-    private Calificacion calificacion;
+    private float calificacion;
 
     public Docente getDocente() {
         return docente;
@@ -21,11 +21,11 @@ public class Calificacion {
         this.docente = docente;
     }
 
-    public Calificacion getCalificacion() {
+    public float getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(Calificacion calificacion) {
+    public void setCalificacion(float calificacion) {
         this.calificacion = calificacion;
     }
     

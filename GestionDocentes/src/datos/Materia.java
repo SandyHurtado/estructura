@@ -11,7 +11,6 @@ package datos;
  */
 public class Materia {
     private String id, nombre,descripción;
-    private Lista docentes;
     
     public String getId() {
         return id;
@@ -37,13 +36,6 @@ public class Materia {
         this.descripción = descripción;
     }
 
-    public Lista getDocentes() {
-        return docentes;
-    }
-
-    public void setDocentes(Lista docentes) {
-        this.docentes = docentes;
-    }
     
    
 }

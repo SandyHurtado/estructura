@@ -93,6 +93,28 @@ public class Lista {
 		return true;
 	}
 	
+        public Docente buscarDocente( String valor ){
+		Nodo aux = this.primero;
+		while(aux != null){
+                    Docente d = (Docente)aux.info;
+			if(d.getCedula().equals(valor))
+			  return d;
+		    aux = aux.siguiente;
+		}
+		return null;
+	}
+        
+        public Materia buscarMateria( String valor ){
+		Nodo aux = this.primero;
+		while(aux != null){
+                    Materia m = (Materia)aux.info;
+			if(m.getId().equals(valor))
+			  return m;
+		    aux = aux.siguiente;
+		}
+		return null;
+	}
+        
 	public Nodo buscar( Object valor ){
 		Nodo aux = this.primero;
 		while(aux != null){
