@@ -58,6 +58,7 @@ public class Gestor {
         System.out.print("Agregar docente: ");
         c.setDocente(docentes.buscarDocente(teclado.next()));
         return c;
+
     }
 
     public void asignarEtudiante() {
@@ -72,10 +73,10 @@ public class Gestor {
         System.out.print("Agregar calificaciones: ");
         e.setCalificaciones(new Lista());
         while (op != 2) {
-            System.out.print("1.- Agregar nueva calificación: ");
-            System.out.print("2.- Salir: ");
+            System.out.println("1.- Agregar nueva calificación: ");
+            System.out.println("2.- Salir: ");
             System.out.print("Opción: ");
-            op= teclado.nextInt();
+            op = teclado.nextInt();
             switch (op) {
                 case 1:
                     e.getCalificaciones().insertar(insertarCalificacion());
@@ -87,5 +88,19 @@ public class Gestor {
                     break;
             }
         }
+        estudiantes.insertar(e);
     }
+
+    public void mostrarEstudiante() {
+        estudiantes.mostrarEstudiante();
+    }
+
+    public void mostrarDocente() {
+        docentes.mostrarDocente();
+    }
+
+    public void mostrarMateria() {
+        materias.mostrarMateria(docentes);
+    }
+
 }

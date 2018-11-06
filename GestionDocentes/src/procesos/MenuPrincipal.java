@@ -12,21 +12,24 @@ import java.util.Scanner;
  * @author FERNANDO
  */
 public class MenuPrincipal {
-  
+
     Gestor gestor = new Gestor();
-    public MenuPrincipal(){
+
+    public MenuPrincipal() {
         Menu();
     }
 
     public void Menu() {
         int op = 0;
         Scanner teclado = new Scanner(System.in);
-        while (op != 4) {
+        while (op != 7) {
             System.out.printf("%10s\n", "1.- Ingresar materia: ");
             System.out.printf("%10s\n", "2.- Ingresar docente: ");
             System.out.printf("%10s\n", "3.- Ingresar estudiante: ");
-            System.out.printf("%10s\n", "4.- Ver Materias ");
-            System.out.printf("%10s\n", "4.- Salir ");
+            System.out.printf("%10s\n", "4.- Mostrar Materias ");
+            System.out.printf("%10s\n", "5.- Mostrar docentes");
+            System.out.printf("%10s\n", "6.- Mostrar estudiantes ");
+            System.out.printf("%10s\n", "7.- Salir ");
             System.out.print("Opción: ");
             op = teclado.nextInt();
             switch (op) {
@@ -39,8 +42,17 @@ public class MenuPrincipal {
                 case 3:
                     gestor.asignarEtudiante();
                     break;
+                case 4:
+                    gestor.mostrarMateria();
+                    break;
+                case 5:
+                    gestor.mostrarDocente();
+                    break;
+                case 6:
+                    gestor.mostrarEstudiante();
+                    break;
                 default:
-                    if (op != 4) {
+                    if (op != 7) {
                         System.out.println("ERROR: Opción incorrecta");
                     }
                     break;

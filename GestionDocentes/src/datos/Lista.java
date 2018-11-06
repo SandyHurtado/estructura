@@ -102,6 +102,18 @@ public class Lista {
         return null;
     }
 
+    public Estudiante buscarEstudiante(String valor) {
+        Nodo aux = this.primero;
+        while (aux != null) {
+            Estudiante e = (Estudiante) aux.info;
+            if (e.getCedula().equals(valor)) {
+                return e;
+            }
+            aux = aux.siguiente;
+        }
+        return null;
+    }
+
     public Materia buscarMateria(String valor) {
         Nodo aux = this.primero;
         while (aux != null) {
@@ -125,10 +137,62 @@ public class Lista {
         return null;
     }
 
-    public void mostrar() {
+//    public void mostrar() {
+//        Nodo aux = this.primero;
+//        while (aux != null) {
+//            System.out.println(aux.info);
+//            aux = aux.siguiente;
+//        }
+//    }
+    public void mostrarMateria(Lista doc) {
         Nodo aux = this.primero;
         while (aux != null) {
-            System.out.println(aux.info);
+            Materia m = (Materia)aux.info;
+            System.out.println(m.getId()+" "+m.getNombre()+" "+m.getDescripción());
+            mostrarDocente(m.getId(), doc);
+            aux = aux.siguiente;
+        }
+    }
+
+    private void mostrarDocente(String id, Lista doc) {
+        Nodo aux = doc.primero;
+        while (aux != null) {
+            Docente d = (Docente) aux.info;
+            if (d.getMateriaImpartida().getId().equals(id)) {
+               System.out.println(d.getCedula()+" " +d.getNombre()+" " +
+                    d.getApellido()+" "+d.getDireccion()+" "+d.getTelefono()); 
+            }
+            aux = aux.siguiente;
+        }
+    }
+    
+    public void mostrarDocente() {
+        Nodo aux = this.primero;
+        while (aux != null) {
+            Docente d = (Docente) aux.info;
+            System.out.println(d.getCedula()+" " +d.getNombre()+" " +
+                    d.getApellido()+" "+d.getDireccion()+" "+d.getTelefono());
+            System.out.println("Materia impartida: "+d.getMateriaImpartida().getNombre());
+            aux = aux.siguiente;
+        }
+    }
+
+    public void mostrarEstudiante() {
+        Nodo aux = this.primero;
+        while (aux != null) {
+            Estudiante e = (Estudiante) aux.info;
+            System.out.println(e.getCedula()+" "+e.getNombre()+" " + e.getApellido());
+            mostrarCalificacion(e.getCalificaciones());
+            aux = aux.siguiente;
+        }
+    }
+    
+    private void mostrarCalificacion(Lista c) {
+        Nodo aux = c.primero;
+        while (aux != null) {
+            Calificacion ca = (Calificacion) aux.info;
+            System.out.println(ca.getCalificacion()+" "+ca.getDocente().getNombre());
+            
             aux = aux.siguiente;
         }
     }
